@@ -1,0 +1,41 @@
+CMPUT410 Assignment 2 - Readme Report
+
+Mihai Oprescu
+1245121
+
+Online Link:
+http://penguinsource.hostei.com/signup.html
+
+  signup.html page:
+
+	The form is validated through javascript; in the same function, I save data into a 
+   cookie which will be used in order to obtain user information  on the quiz pages.
+	In the form, the Name and the Email are required to be entered (they are starred).
+	The email, postal code and birthdate are checked for validity.
+	
+  quiz pages (file1.html, file2.html, file3.html):
+  
+	All of the body's div's are placed within a 'bodycontainer' class. The class 'hidden'
+	is used in order to keep content hidden until it is required.
+	When the user clicks the Start Quiz button, new content will show up (setting the
+	class of that content to a 'visible' class.
+	
+	The timers start once the Start Quiz button is clicked. There are 3 question timers;
+	each one keeps track of how long a user stayed on each of the 3 questions. The times
+	are also reported when the results of the quiz are shown.
+	
+	The questions are navigable by the 'Previous' and 'Next' buttons, which are disabled
+	appropriately so the user knows the limits of the questions. 
+	
+	When the user clicks the submit button, the quiz will be submitted, whether or not
+	the user answered all the questions. The results will show the correct/incorrect and 
+	unanswered questions.
+	
+	If any of the pages are accessed without the user being logged in, the quiz will not
+	be displayed. A register link will be available for the guest to sign up.
+	
+	(The answers of each quiz might not be correct, they are always 2,4,2 or b,d,b).
+	
+
+
+

@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>           // HTML5 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>
+	410 Asn2
+</title>
+<link rel="stylesheet" type="text/css" href="design.css">
+
+<script>
+
+function validateForm() {
+	// validate name
+	var name = document.forms["register"]["Name"].value;
+	if (name == null || name == ""){
+		alert("Your name must be filled out !");
+		document.getElementById("Name").focus();
+		return false;
+	}
+	var address = document.forms["register"]["Address"].value;
+	var city = document.forms["register"]["City"].value;
+	// validate email
+	var email = document.forms["register"]["Email"].value;
+	if (email == null || email == ""){
+		alert("Your email must be filled out !");
+		document.getElementById("Email").focus();
+		return false;
+	}
+	var emailRegex = /^([a-zA-Z0-9])([a-zA-Z0-9\._-])*@(([a-zA-Z0-9])+(\.))+([a-zA-Z]{2,4})+$/;
+	if (email.search(emailRegex) == -1) {
+		alert("Invalid email entered !");
+		document.getElementById("Email").focus();
+		return false;
+	}
+	// validate postal code
+	var postalCode = document.forms["register"]["PostalCode"].value;
+	if ( postalCode != "" ){	// if a postal code is entered, validate it
+		var postalRegex = /[a-zA-Z][0-9][a-zA-Z](-| |)[0-9][a-zA-Z][0-9]/;
+		if ( (postalCode.length != 6) || (!(postalRegex.test(postalCode))) ){
+			alert("Invalid Postal Code entered !");
+			document.getElementById("PostalCode").focus();
+			return false;
+		}
+	}
+	// validate birth date
+	var BirthDate = document.forms["register"]["BirthDate"].value;
+	if ( BirthDate != "" ) {	// if a birth date is entered, validate it
+		var BirthDateRegex = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
+		if ( !BirthDateRegex.test(BirthDate) ) {
+			alert("Invalid Birth Date entered !");
+			document.getElementById("BirthDate").focus();
+			return false;
+		}
+	}
+	
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + 1);
+	//alert("exdate is " + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()));
+	document.cookie = "name=" + name + "; email=" + email +
+	( (address == null) ? "" : ("; address=" + escape(address)) ) +
+	( (city == null) ? "" : ("; city=" + escape(city)) ) +
+	( (postalCode == null) ? "" : ("; postalcode=" + escape(postalCode)) ) +
+	( (email == null) ? "" : ("; email=" + escape(email)) ) +
+	( (BirthDate == null) ? "" : ("; birthdate=" + escape(BirthDate)) );
+	
+	return true;
+}
+
+function getCookieBB(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+{
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+
+function getCookieCC(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+} 
+
+function clearCookies(){
+	var mydate = new Date();
+	mydate.setTime(mydate.getTime() - 1);
+	document.cookie = "name=; expires=" + mydate.toGMTString();
+}
+
+</script>
+
+</head>
+
+<body onload="clearCookies()">
+
+<div id="centerPageContainer">
+
+<!--
+<ul class="sitetabs">
+  <li><a href="file1.html" class="selected">Physics</a></li>
+  <li><a href="file2.html">Math</a></li>
+  <li><a href="file3.html">Programming</a></li>
+</ul>
+-->
+
+<div id="titleContainer">
+	<p class="title"> Sign Up </p>
+</div>
+
+<div id="bodyContainer">
+	<H2>	Customer Identification</H2>
+	
+	<p id="register"> Fields with <span id=red > * </span> are mandatory  </p>
+	
+	<form name="register" action="file1.html" onsubmit="return validateForm()" method="post">
+	
+	<div id="registerFields"> 
+	
+	<table>
+	
+	<tr>
+		<td> Name </td>
+		<td> <input type="text" name="Name" id="Name"> <span id=red > * </span> </td>
+	</tr>
+	<tr>
+		<td> Address </td>
+		<td> <input type="text" name="Address" id="Address"> </td>
+	</tr>
+	<tr>
+		<td> City </td>
+		<td> <input type="text" name="City" id="City"> </td>
+	</tr>
+	<tr>
+		<td> Postal Code </td>
+		<td> <input type="text" name="PostalCode" id="PostalCode"> </td>
+	</tr>
+	<tr>
+		<td> Email </td>
+		<td> <input type="text" name="Email" id="Email"> <span id=red > * </span> </td>
+	</tr>
+	<tr>
+		<td> Birth Date </td>
+		<td> <input type="text" name="BirthDate" id="BirthDate"> </td>
+		<td> (yyyy-mm-dd) </td>
+	</tr>
+	
+	</table>
+	
+	<input type="submit" value="Submit">
+	
+	</div>
+	
+	
+	</form>
+	
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
+

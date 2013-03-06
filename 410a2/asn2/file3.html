@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>           // HTML5 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>
+	CMPUT410 Assignment 1 - Programming Page
+</title>
+<link rel="stylesheet" type="text/css" href="design.css">
+<script language="JavaScript" src="quizPageFunctions.js" ></script>
+</head>
+
+<body>
+
+<div id="centerPageContainer">
+
+<ul class="sitetabs">
+  <li><a href="file1.html">Physics</a></li>
+  <li><a href="file2.html">Math</a></li>
+  <li><a href="file3.html" class="selected">Programming</a></li>
+  <div id="signoutBtn" class="visible"><li><a href="signup.html" id="SignOut" action="clearCookies()" >Sign Out</a></li> </div>
+</ul>
+
+
+<div id="titleContainer">
+	<div id="headerText">
+		<p> Programming Quiz for <script> document.write(GetCookie("name")); </script></p>
+		<p id="timer1"> Timer: 0 Seconds.</p>
+		<p id="timer2"> Question Timer: 0 Seconds.</p>
+		<p id="QuestionNumber"> Question: 0/3</p>
+		
+		<div id="progressTabBg"><div id="innerProgressTab"></div></div>
+	</div>
+</div>
+
+<div id="noLogin" class="hidden">Please <a href="signup.html">register</a> before taking any quizzes !</div>
+
+<div id="bodyContainer">
+	<p id="directionsDiv">	Directions: Closed book, no talking, and one hour.</p>
+	
+	<div id="quizButtons" class="hidden">
+		<button id="prevBtn" value="prev" onclick="previousQuestion()">Previous Question</button>
+		<button id="nextBtn" value="next" onclick="nextQuestion()">Next Question</button>
+		<button id="submitQuizBtn" value="submitQuiz" onclick="submitQuiz()">Submit the Quiz !</button>
+	</div>
+		
+	<div id="resultsDiv" class="hidden">
+		<p id="resultsText"> Results for <script> document.write(GetCookie("name")); </script> </p>
+		<div id=printResults></div>
+	</div>
+	
+	<div id="q1" class="hidden">
+	<div class="question">
+		<img src="http://blog.ecollegefinder.org/wp-content/uploads/2012/01/101474454.jpg" width="300" height="175" alt="Code">
+		<p> 1. What programming language is this? </p>
+		<ul class="question">
+			<li> <input type="radio" id="one1" name="ans" onclick="answerQuestion('one');"><label for="one">Pascal</label></li>
+			<li> <input type="radio" id="two1" name="ans" onclick="answerQuestion('two');"><label for="two">C</label></li>
+			<li> <input type="radio" id="three1" name="ans" onclick="answerQuestion('three');"><label for="three">Visual Basic</label> <li>
+			<li> <input type="radio" id="four1" name="ans" onclick="answerQuestion('four');"> <label for="four">Java</label></li>
+		</ul>
+	</div>
+	</div>
+	
+	<div id="q2" class="hidden">
+	<div class="question">
+		<p> 2. Checking a computer program for errors is called:</p>
+		<ul class="question">
+			<li> <input type="radio" id="one2" name="ans" onclick="answerQuestion('one');"><label for="one2" >bugging</label></li>
+			<li> <input type="radio" id="two2" name="ans" onclick="answerQuestion('two');"><label for="two2" >debugging</label></li>
+			<li> <input type="radio" id="three2" name="ans" onclick="answerQuestion('three');"><label for="three2" >correcting</label></li>
+			<li> <input type="radio" id="four2" name="ans" onclick="answerQuestion('four');"> <label for="four2" >syntaxing</label></li>
+		</ul>
+		
+	</div>
+	</div>
+	
+	<div id="q3" class="hidden">
+	<div class="question">
+		<p> 3. How many bytes are in an integer? ( with a 64-bit OS )</p>
+		<ul class="question">
+			<li> <input type="radio" id="one3" name="ans" onclick="answerQuestion('one');"><label for="one3">2</label></li>
+			<li> <input type="radio" id="two3" name="ans" onclick="answerQuestion('two');"><label for="two3">4</label></li>
+			<li> <input type="radio" id="three3" name="ans" onclick="answerQuestion('three');"><label for="three3">8</label></li>
+			<li> <input type="radio" id="four3" name="ans" onclick="answerQuestion('four');"> <label for="four3">12</label></li>
+		</ul>
+		
+	</div>
+	</div>
+	
+	<div id="startButton">
+	<button id="startButton" onclick="startQuiz()"> Start the Quiz !</button>
+	</div>
+</div>
+	
+</div>
+
+<script>
+	// unregistered users can't see the quiz !
+	if (GetCookie("name") == null || GetCookie("name") == "") {
+		document.getElementById("bodyContainer").className="hidden";
+		document.getElementById("noLogin").className="visible";
+		document.getElementById("signoutBtn").className="hidden";
+	}
+</script>
+
+</body>
+
+</html>
+
