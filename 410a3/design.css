@@ -27,7 +27,7 @@ span#red {
 
 #centerPageContainer {
 	/*background-color:#85ADDB;*/
-	width: 69%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -47,6 +47,12 @@ span#red {
     padding-top:0px;
 }
 
+#bodyContainerFull {
+	background-color:white;
+	padding:0;
+	margin:0;
+}
+
 #simpleBodyContainer {
 	background-color: white;
 	padding: 25px;
@@ -54,6 +60,20 @@ span#red {
 	margin:0;
 	border-style: solid;
 	border-width: 1px;
+}
+
+div#leftSide {
+	min-height: 250px;
+	background-color: white;
+	float:left;
+	width:65%;
+}
+
+div#rightSide {
+	min-height: 250px;
+	float:right;
+	width:35%;
+	background-color: #808080;
 }
 
 div#noLogin {
@@ -138,11 +158,10 @@ div#progressTabBg {
   border-radius: 5px;
   padding: 1px;
   margin-top:5px;
-  width:350px;
+  width:270px;	/* 350 originally */
 }
 
 div#innerProgressTab {
-   
    height: 10px;
    border-radius: 4px;
    -moz-border-radius: 1px;

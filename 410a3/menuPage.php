@@ -9,7 +9,11 @@
 	410 Asn2
 </title>
 <link rel="stylesheet" type="text/css" href="design.css">
-<?php $javascriptEnabled = 1; ?>
+<script>
+	function takeQuiz(){ window.location = "quizPage.php"; }
+	function goToAdmin(){ window.location = "quizPage.php"; }
+</script>
+
 </head>
 
 <body>
@@ -25,9 +29,9 @@ Javascript is disabled !
 	Welcome ! Would you like to:
 </H2>
 <br>
-<button> Take Quiz </button>
+<button onClick="takeQuiz()"> Take Quiz </button>
 <br>
-<button> Admin Module </button>
+<button onClick="goToAdmin()"> Admin Module </button>
 <br>
 <button onClick="logout"> Logout </button>
 <?php echo "aa: " . $javascriptEnabled;?>
