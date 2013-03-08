@@ -20,10 +20,7 @@
 	<div id="bodyContainerFull">
 		<div id="leftSide"> 
 			<div id="noLogin" class="hidden">Please <a href="index.php">register</a> before taking any quizzes !</div>
-			<div>
 				<?php printQuestion(2)?>
-
-			</div>
 		</div>
 		
 		
@@ -38,6 +35,8 @@
 		</div>
 
 	</div>
+</div>
+<div>sd
 </div>
 
 </body>
