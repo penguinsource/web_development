@@ -1,0 +1,44 @@
+
+body {
+	background-color:#6BB56C;
+}
+
+p {
+	margin:0;
+	padding:0;
+}
+
+div {
+	margin:0;
+	padding:0;
+}
+
+#centerPageContainer {
+	background-color:#85ADDB;
+	width: 55%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bodyContainer {
+	background-color: white;
+	margin:0;
+	padding:0;
+	padding-bottom:25px;
+	height:200px;
+}
+
+p.startPar {
+	padding-top:20px;
+}
+
+div.textBar {
+	display: inline;
+}
+
+div.fixedText {
+	min-width: 110px;
+	display: inline;
+	color: red;
+}
+
